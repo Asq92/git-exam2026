@@ -5,22 +5,19 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Setup Node (for lint example)
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install
-
-      - name: Lint check
-        run: npm run lint || true
+        run: npm install || true
 
       - name: Run tests
         run: npm test || true

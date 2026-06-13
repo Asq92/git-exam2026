@@ -1,0 +1,6 @@
+#!/bin/sh
+
+grep -Eq "TASK-[0-9]+:" "$1" || {
+  echo "ERROR: Commit must be TASK-123: message format"
+  exit 1
+}

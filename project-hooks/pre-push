@@ -1,0 +1,9 @@
+#!/bin/sh
+
+echo "Running tests..."
+
+# simulation (exam-safe)
+npm test || {
+  echo "Tests failed - push blocked"
+  exit 1
+}
